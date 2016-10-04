@@ -1,0 +1,398 @@
+<html>
+	<head>
+		<style>
+			:root {
+				--DropdownMenu-padding: 5px 10px;
+				--DropdownMenu-borderRadius: 5px;
+			}
+
+			a {
+				color: #6885A3;
+			}
+
+			.Page {
+				min-width: 400px;
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+
+			.Header {
+				padding: 10px 0;
+				border-bottom: solid 1px #DFDFDF;
+			}
+
+			.HeaderMenu,
+			.Search {
+				display: inline-block;
+			}
+
+			.Search {
+				float: right;
+				border: 1px solid #DADADA;
+				border-radius: 5px;
+				overflow: hidden;
+			}
+
+			.Search input {
+				border: 0;
+				padding: 5px;
+				margin: 0;
+				outline: none;
+			}
+
+			.Search-button {
+				background: #587898;
+				padding: 5px;
+				color: white;
+				cursor: pointer;
+			}
+
+			.HeaderMenu-item {
+				display: inline-block;
+			}
+
+			.DropdownMenu {
+				padding: var(--DropdownMenu-padding);
+				cursor: pointer;
+				position: relative;
+				border-radius: var(--DropdownMenu-borderRadius);
+			}
+
+			.DropdownMenu:hover {
+				background: #507aa5;
+				color: white;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+
+			.DropdownMenu-title:after {
+				content: "\2193";
+				margin: 0px 5px;
+				font-size: 14px;
+				color: #bfbfbf;
+			}
+
+			.DropdownMenu:hover .DropdownMenu-title:after {
+				color: #84a1c0;
+			}
+
+			.DropdownMenu-items {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				min-width: 100%;
+				display: none;
+				background: #507aa5;
+				border-bottom-right-radius: var(--DropdownMenu-borderRadius);
+				border-bottom-left-radius: var(--DropdownMenu-borderRadius);
+				overflow: hidden;
+				z-index: 9999;
+			}
+
+			.DropdownMenu-item {
+				padding: var(--DropdownMenu-padding);
+				white-space: nowrap;
+			}
+
+			.DropdownMenu-item:hover {
+				background: #466a90;
+			}
+
+			.DropdownMenu:hover .DropdownMenu-items {
+				display: block;
+			}
+
+			.MainBody {
+				display: flex;
+				flex-wrap: nowrap;
+				width: 100%;
+				margin-top: 10px;
+			}
+
+			.MainListItem {
+				padding-bottom: 20px;
+				margin-top: 20px;
+				display: flex;
+				flex-wrap: nowrap;
+				border-bottom: solid 1px #DFDFDF;
+			}
+
+			.MainListItem-thumbContainer {
+				width: 150px;
+				height: 150px;
+				margin-right: 10px;
+				flex-shrink: 0;
+				position: relative;
+				cursor: pointer;
+			}
+
+			.MainListItem-thumbContainer img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.MainListItem-thumbCaption {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 30px;
+				display: flex;
+				color: white;
+				background: #587898;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.MainListItem-body {
+				flex-grow: 1;
+			}
+
+			.MainListItem-title {
+				color: #5A7A9B;
+				cursor: pointer;
+				margin: 0;
+			}
+
+			.MainListExtraInfo {
+				font-size: 15px;
+			}
+
+			.MainListExtraInfo-row {
+				display: flex;
+				padding: 5px 0;
+				border-top: solid 1px #F1F1F1;
+			}
+
+			.MainListExtraInfo-leftRowItem {
+				flex-grow: 1;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.MainListExtraInfo-rightRowItem {
+				flex-shrink: 0;
+				overflow: hidden;
+				text-overflow: ellipsis;				
+			}
+
+			.MainList {
+				flex-grow: 1;
+				padding-right: 10px;
+			}
+
+			.SideList {
+				width: 200px;
+				padding-left: 20px;
+				flex-shrink: 0;
+				border-left: solid 1px #DFDFDF;
+			}
+
+			@media (max-width: 750px) {
+				.SideList {
+					display: none;
+				}
+			}
+
+			.ImageList {
+				width: 100%;
+			}
+
+			.ImageList-item img {
+				width: 100%;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="Page">
+			<div class="Header">
+				<div class="HeaderMenu">
+					<div class="HeaderMenu-item DropdownMenu">
+						<div class="DropdownMenu-title">Web Design</div>
+						<div class="DropdownMenu-items">
+							<div class="DropdownMenu-item">Fireworks</div>
+							<div class="DropdownMenu-item">Logo Design</div>
+							<div class="DropdownMenu-item">Illustrator</div>
+							<div class="DropdownMenu-item">Icon design</div>
+							<div class="DropdownMenu-item">Flash</div>
+						</div>
+					</div>
+					<div class="HeaderMenu-item DropdownMenu">
+						<div class="DropdownMenu-title">GUI</div>
+						<div class="DropdownMenu-items">
+							<div class="DropdownMenu-item">Fireworks</div>
+							<div class="DropdownMenu-item">Logo Design</div>
+							<div class="DropdownMenu-item">Illustrator</div>
+							<div class="DropdownMenu-item">Icon design</div>
+							<div class="DropdownMenu-item">Flash</div>
+						</div>
+					</div>					
+					<div class="HeaderMenu-item DropdownMenu">
+						<div class="DropdownMenu-title">Graphic Design</div>
+						<div class="DropdownMenu-items">
+							<div class="DropdownMenu-item">Fireworks</div>
+							<div class="DropdownMenu-item">Logo Design</div>
+							<div class="DropdownMenu-item">Illustrator</div>
+							<div class="DropdownMenu-item">Icon design</div>
+							<div class="DropdownMenu-item">Flash</div>
+						</div>
+					</div>					
+					<div class="HeaderMenu-item DropdownMenu">
+						<div class="DropdownMenu-title">Fireworks</div>
+						<div class="DropdownMenu-items">
+							<div class="DropdownMenu-item">Fireworks</div>
+							<div class="DropdownMenu-item">Logo Design</div>
+							<div class="DropdownMenu-item">Illustrator</div>
+							<div class="DropdownMenu-item">Icon design</div>
+							<div class="DropdownMenu-item">Flash</div>
+						</div>
+					</div>
+					<div class="HeaderMenu-item DropdownMenu">
+						<div class="DropdownMenu-title">Resources</div>
+						<div class="DropdownMenu-items">
+							<div class="DropdownMenu-item">Fireworks</div>
+							<div class="DropdownMenu-item">Logo Design</div>
+							<div class="DropdownMenu-item">Illustrator</div>
+							<div class="DropdownMenu-item">Icon design</div>
+							<div class="DropdownMenu-item">Flash</div>
+						</div>
+					</div>
+					<div class="HeaderMenu-item DropdownMenu">
+						<div class="DropdownMenu-title">Inspiration</div>
+						<div class="DropdownMenu-items">
+							<div class="DropdownMenu-item">Fireworks</div>
+							<div class="DropdownMenu-item">Logo Design</div>
+							<div class="DropdownMenu-item">Illustrator</div>
+							<div class="DropdownMenu-item">Icon design</div>
+							<div class="DropdownMenu-item">Flash</div>
+						</div>
+					</div>															
+				</div>
+				<div class="Search">
+					<input type="text" placeholder="Search here..." />
+					<span class="Search-button">Search</span>
+				</div>
+			</div>
+
+			<div class="MainBody">
+				<div class="MainList">
+					<div class="MainListItem">
+						<div class="MainListItem-thumbContainer">
+							<img src="http://placehold.it/150x150" />
+							<div class="MainListItem-thumbCaption">Competition</div>
+						</div>
+						<div class="MainListItem-body">
+							<h1 class="MainListItem-title">Lorem ipsum dolor sit amet, consecutor adipiscing elit.</h1>
+							<div class="MainListItem-extraInformation MainListExtraInfo">
+								<div class="MainListExtraInfo-row">
+									<div class="MainListExtraInfo-leftRowItem">February 8, 2013</div>
+									<div class="MainListExtraInfo-rightRowItem">
+										<a href="/comments">10 comments and 22 reactions</a></div>
+								</div>
+								<div class="MainListExtraInfo-row">
+									<div class="MainListExtraInfo-leftRowItem">Topics &#8594; <a href="/topic?">Sponsor</a></div>
+									<div class="MainListExtraInfo-rightRowItem">
+										<a href="/author">Author &#8594;</a></div>
+								</div>
+								<div class="MainListExtraInfo-row">
+									<div class="MainListExtraInfo-leftRowItem">Lorem impus dolor sit amet</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="MainListItem">
+						<div class="MainListItem-thumbContainer">
+							<img src="http://placehold.it/150x150" />
+							<div class="MainListItem-thumbCaption">Competition</div>
+						</div>
+						<div class="MainListItem-body">
+							<h1 class="MainListItem-title">Lorem ipsum dolor sit amet, consecutor adipiscing elit.</h1>
+							<div class="MainListItem-extraInformation MainListExtraInfo">
+								<div class="MainListExtraInfo-row">
+									<div class="MainListExtraInfo-leftRowItem">February 8, 2013</div>
+									<div class="MainListExtraInfo-rightRowItem">
+										<a href="/comments">10 comments and 22 reactions</a></div>
+								</div>
+								<div class="MainListExtraInfo-row">
+									<div class="MainListExtraInfo-leftRowItem">Topics &#8594; <a href="/topic?">Sponsor</a></div>
+									<div class="MainListExtraInfo-rightRowItem">
+										<a href="/author">Author &#8594;</a></div>
+								</div>
+								<div class="MainListExtraInfo-row">
+									<div class="MainListExtraInfo-leftRowItem">Lorem impus dolor sit amet</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="MainListItem">
+						<div class="MainListItem-thumbContainer">
+							<img src="http://placehold.it/150x150" />
+							<div class="MainListItem-thumbCaption">Competition</div>
+						</div>
+						<div class="MainListItem-body">
+							<h1 class="MainListItem-title">Lorem ipsum dolor sit amet, consecutor adipiscing elit.</h1>
+							<div class="MainListItem-extraInformation MainListExtraInfo">
+								<div class="MainListExtraInfo-row">
+									<div class="MainListExtraInfo-leftRowItem">February 8, 2013</div>
+									<div class="MainListExtraInfo-rightRowItem">
+										<a href="/comments">10 comments and 22 reactions</a></div>
+								</div>
+								<div class="MainListExtraInfo-row">
+									<div class="MainListExtraInfo-leftRowItem">Topics &#8594; <a href="/topic?">Sponsor</a></div>
+									<div class="MainListExtraInfo-rightRowItem">
+										<a href="/author">Author &#8594;</a></div>
+								</div>
+								<div class="MainListExtraInfo-row">
+									<div class="MainListExtraInfo-leftRowItem">Lorem impus dolor sit amet</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="MainListItem">
+						<div class="MainListItem-thumbContainer">
+							<img src="http://placehold.it/150x150" />
+							<div class="MainListItem-thumbCaption">Competition</div>
+						</div>
+						<div class="MainListItem-body">
+							<h1 class="MainListItem-title">Lorem ipsum dolor sit amet, consecutor adipiscing elit.</h1>
+							<div class="MainListItem-extraInformation MainListExtraInfo">
+								<div class="MainListExtraInfo-row">
+									<div class="MainListExtraInfo-leftRowItem">February 8, 2013</div>
+									<div class="MainListExtraInfo-rightRowItem">
+										<a href="/comments">10 comments and 22 reactions</a></div>
+								</div>
+								<div class="MainListExtraInfo-row">
+									<div class="MainListExtraInfo-leftRowItem">Topics &#8594; <a href="/topic?">Sponsor</a></div>
+									<div class="MainListExtraInfo-rightRowItem">
+										<a href="/author">Author &#8594;</a></div>
+								</div>
+								<div class="MainListExtraInfo-row">
+									<div class="MainListExtraInfo-leftRowItem">Lorem impus dolor sit amet</div>
+								</div>
+							</div>
+						</div>
+					</div>				
+				</div>
+				<div class="SideList">
+					<div class="ImageList">
+						<div class="ImageList-item">
+							<img src="http://placehold.it/150x100" />
+						</div>
+						<div class="ImageList-item">
+							<img src="http://placehold.it/150x150" />
+						</div>
+						<div class="ImageList-item">
+							<img src="http://placehold.it/150x450" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
